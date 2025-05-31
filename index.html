@@ -1,13 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blump</title>
-    <style>style.css</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Blump DJ Profile">
+  <title>Blump</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-    test
+  <header>
+    <h1>BLUMP</h1>
+    <p>Familiar vibes, unforgettable energy</p>
+  </header>
+
+  <section class="hex-grid">
+    <div class="hex about">
+      <h2>About BLUMP</h2>
+      <p>BLUMP (Eli Blumkin) is a Boston-born DJ with a background in piano and drums, blending musical instinct with house beats. He brings groovy house, disco edits, and nostalgic EDM remixes to life—energizing dance floors from Copenhagen to St. Louis.</p>
+    </div>
+
+    <div class="hex contact">
+      <h2>Contact</h2>
+      <p><a href="mailto:blump.info@gmail.com">blump.info@gmail.com</a></p>
+      <p><a href="tel:8574527295">857.452.7295</a></p>
+      <p><a href="https://on.soundcloud.com/P8ebhFK46ctzDqU85K" target="_blank">SoundCloud: BLUMP</a></p>
+    </div>
+
+    <div class="hex mixes">
+      <h2>Mixes & Sets</h2>
+      <ul>
+        <li><a href="https://soundcloud.com/blumpp/la-boucherie-set" target="_blank">La Boucherie Set</a></li>
+        <li><a href="https://soundcloud.com/blumpp/disco-den-vol-1" target="_blank">Disco Den Vol. 1</a></li>
+      </ul>
+    </div>
+    <div class="image-top-right"></div>
+    <div class="image-bottom-left"></div>
+  </section>
+
+  <div class="bottom">
+
+    <div class="availability">
+        <h2>Availability and Booking Info</h2>
+        <p>Summer 2025: Based in New York City – actively booking gigs at bars and clubs</p>
+        <p>Fall 2025 and Spring 2026: Based in St. Louis, MO – open for college and club events</p>
+    </div>
+
+    <div class="booking">
+        <h2>Contact Me!</h2>
+        <p>Rates: $50–100/hr</p>
+        <form action="https://formspree.io/f/yourFormID" method="POST">
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <textarea name="message" placeholder="Message" required></textarea>
+        <button type="submit">Send Booking Inquiry</button>
+        </form>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>&copy; 2025 BLUMP. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const header = document.querySelector('header');
+  
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      const blurValue = Math.min(scrollY / 15, 6); // Max 6px blur
+  
+      header.style.filter = `blur(${blurValue}px)`;
+    });
+  </script>
 </body>
 </html>
