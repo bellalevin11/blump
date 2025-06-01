@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Agbalumo&family=Bungee+Inline&family=Caveat:wght@400..700&family=Courgette&family=Fascinate+Inline&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Oxanium:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=STIX+Two+Text:ital,wght@0,400..700;1,400..700&family=Shadows+Into+Light&family=Ubuntu+Condensed&display=swap" rel="stylesheet">
-</head>
+  <link href="https://fonts.googleapis.com/css2?family=Agbalumo&family=Bungee+Inline&family=Caveat:wght@400..700&family=Courgette&family=Fascinate+Inline&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Oxanium:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=STIX+Two+Text:ital,wght@0,400..700;1,400..700&family=Shadows+Into+Light&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&family=Ubuntu+Condensed&display=swap" rel="stylesheet"></head>
 <body>
   <header>
     <h1>BLUMP</h1>
@@ -20,6 +20,7 @@
   </header>
 
   <section class="hex-grid">
+    <div class="up-arrow">↑</div>
     <div class="hex about">
       <h1>About BLUMP</h1>
       <p>BLUMP (Eli Blumkin) is a Boston-born DJ with a background in piano and drums, blending musical instinct with house beats. He brings groovy house, disco edits, and nostalgic EDM remixes to life, energizing dance floors from Copenhagen to St. Louis. His sets aim to bring back the infectious grooves that the dancefloors deserve.</p>
@@ -53,43 +54,49 @@
 
     <div class="image-top-right"></div>
     <div class="image-bottom-left"></div>
+    <div class="scroll-arrow">↓</div>
   </section>
 
-  <div class="bottom">
+  <section class="bottom">
+    <div class="up-arrow">↑</div>
+    <div class="content-wrapper">
 
-    <div class="availability">
-      <h2>Availability and Booking Info</h2>
-      <p><strong>Summer 2025:</strong> Based in New York City — now booking bars, clubs, and events</p>
-      <p><strong>Fall 2025 & Spring 2026:</strong> Based in St. Louis, MO — available for college events and club nights</p>
-      <p><strong>Rates:</strong> $50–100/hr — pricing varies by event type and duration</p>
-      <p><em>Get in touch to discuss your event details and secure a date!</em></p>
+      <div class="last-info">
+        <div class="availability">
+          <h2>Availability and Booking Info</h2>
+          <p><strong>Summer 2025:</strong> Based in New York City — now booking bars, clubs, and events</p>
+          <p><strong>Fall 2025 & Spring 2026:</strong> Based in St. Louis, MO — available for college events and club nights</p>
+          <p><strong>Rates:</strong> $50–100/hr — pricing varies by event type and duration</p>
+        </div>
+
+        <div class="booking">
+            <h2>Contact Me</h2>
+            <form action="https://formspree.io/f/yourFormID" method="POST">
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <textarea name="message" placeholder="Message" required></textarea>
+            <button type="submit">Send Booking Inquiry</button>
+            </form>
+        </div>
+      </div>
+
+      <footer>
+        <p>&copy; 2025 BLUMP. All rights reserved.</p>
+      </footer>
     </div>
 
-    <div class="booking">
-        <h2>Contact Me!</h2>
-        <form action="https://formspree.io/f/yourFormID" method="POST">
-        <input type="text" name="name" placeholder="Name" required>
-        <input type="email" name="email" placeholder="Email" required>
-        <textarea name="message" placeholder="Message" required></textarea>
-        <button type="submit">Send Booking Inquiry</button>
-        </form>
-    </div>
+  </section>
 
-  </div>
-
-  <footer>
-    <p>&copy; 2025 BLUMP. All rights reserved.</p>
-  </footer>
 
   <script>
     const header = document.querySelector('header');
-  
+    
     window.addEventListener('scroll', () => {
       const scrollY = window.scrollY;
       const blurValue = Math.min(scrollY / 15, 6); // Max 6px blur
-  
+    
       header.style.filter = `blur(${blurValue}px)`;
     });
-  </script>
+    </script>
 </body>
 </html>
