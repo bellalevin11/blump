@@ -149,7 +149,26 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+  
+    aspect-ratio: 1.18 / 1;
+    width: clamp(250px, 30vw, 400px);
+    min-height: auto;
+    overflow: hidden;
   }
+  
+  .hex h1, .hex h2, .hex p {
+    font-size: clamp(0.9rem, 1.2vw + 0.5rem, 1.4rem);
+    line-height: 1.4;
+    padding: 0 1rem;
+  }
+  
+  .hex-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  
   
   .hex h2 {
     margin-bottom: 1rem;
@@ -208,19 +227,24 @@
   }
 
   .about {
-    width: 45vw;
-    height: 40vw;
     top: 15%;
     left: 50%;
     transform: translateX(-50%);
+    width: 90%;
+    max-width: 700px;
   }
 
 /* CONTACT HEX */
+
+.contact, .mixes {
+    width: 90%;
+    max-width: 400px;
+  }
+
   .contact {
-    width: 30vw;
-    height: 25vw;
     top: 5%;
-    left: 1rem;
+    left: 0;
+    transform: translateX(-20%);
     display: flex;
     flex-direction: column;
     align-items: flex-start; /* Left-align the content */
@@ -230,7 +254,7 @@
   
   .contact h2 {
     align-self: center; /* Keep the title centered */
-    margin-bottom: 1rem;
+    margin-bottom: .5rem;
   }
   
   .contact-item {
@@ -261,10 +285,9 @@
   
   
   .mixes {
-    width: 30vw;
-    height: 25vw;
     bottom: 5%;
-    right: 1rem;
+    right: 0;
+    transform: translateX(20%);
   }
   
 
@@ -534,7 +557,7 @@
     }
     
     .about p {
-        font-size: 1rem;
+        font-size: 1.2rem;
         margin: 0.5rem 0;
         line-height: 1.6rem;
     }
@@ -557,6 +580,7 @@
       border-radius: 1rem;
       padding: 1.5rem;
       box-shadow: 0 0 15px rgba(255,255,255,0.1);
+      overflow: visible;
     }
   
     .hex h1, .hex h2 {
@@ -566,7 +590,16 @@
     .hex p {
       margin: 1rem 0;
       line-height: 1.6rem;
-      font-size: 1rem;
+      font-size: 1.2rem;
+    }
+    
+    .contact, .mixes {
+        transform: none;
+        max-width: none;
+    }
+
+    .contact h2 {
+        margin-bottom: .1rem;
     }
   
     .contact-item {
@@ -577,43 +610,50 @@
     .contact-item img {
       width: 1.2rem;
     }
-  
-    .mixes .mix-quote {
-      margin: 1rem 0;
-    }
-  
+
     .mixes a.mix-link {
       display: block;
       margin: 0.5rem 0;
       text-align: center;
     }
   
-    .image-top-right,
-    .image-bottom-left {
+    .image-top-right {
       position: static;
       width: 100%;
       height: 200px;
-      margin: 1rem 0;
       background-size: cover;
       background-position: center;
       mask-image: none;
       -webkit-mask-image: none;
     }
+
+    .image-bottom-left {
+        display: none;
+    }
   
     .bottom {
       height: auto;
-      padding: 2rem 1rem;
+      padding: 1rem 1rem;
     }
   
     .last-info {
       flex-direction: column;
       align-items: center;
       gap: 2rem;
+      padding: 0rem .1rem;
     }
   
     .availability, .booking {
       width: 90%;
       min-height: auto;
+    }
+
+    .booking {
+        padding: 1.5rem;
+    }
+
+    .availability h2 {
+        margin-bottom: .1rem;
     }
 
     .availability p {
@@ -623,21 +663,22 @@
         margin: 1rem 0;
       }
     
-      .availability p strong {
+    .availability p strong {
         min-width: unset;
         text-align: left;
-      }
-    
-      .availability p span {
+    }
+
+    .availability p span {
         display: block;
         margin-left: 0;
-      }
-    
-      .availability {
+    }
+
+    .availability {
         padding: 1rem;
         text-align: left;
-      }
+    }
   
+
     footer {
       margin-top: 2rem;
       padding: 1rem;
