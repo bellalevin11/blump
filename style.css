@@ -485,3 +485,167 @@
     padding: 1rem;
   }
   
+
+
+  @media (max-width: 760px) {
+    /* Remove scrolling lock */
+    html, body {
+      height: auto;
+      overflow-x: hidden;
+      scroll-snap-type: none;
+    }
+  
+    header, .hex-grid, .bottom {
+      height: auto;
+      scroll-snap-align: none;
+    }
+  
+    header {
+      height: 60vh;
+      background-size: cover;
+      background-position: center;
+      text-align: center;
+      background: url('image1.jpeg') 35% 93% / 140% no-repeat;
+    }
+
+    /* Header text smaller */
+    header h1 {
+        font-size: 2.5rem;
+    }
+    
+    header p {
+        font-size: 1.2rem;
+    }
+    
+    /* Center About BLUMP content */
+    .about {
+        width: 90%;
+        height: auto;
+        top: auto;
+        left: auto;
+        transform: none;
+        margin: 0 auto;
+        text-align: center;
+    }
+    
+    .about h1 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
+    
+    .about p {
+        font-size: 1rem;
+        margin: 0.5rem 0;
+        line-height: 1.6rem;
+    }
+
+      
+    .hex-grid {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      padding: 2rem 1rem;
+    }
+  
+    .hex {
+      position: static;
+      width: 90%;
+      height: auto;
+      clip-path: none;
+      background: #373737;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      box-shadow: 0 0 15px rgba(255,255,255,0.1);
+    }
+  
+    .hex h1, .hex h2 {
+      text-align: center;
+    }
+  
+    .hex p {
+      margin: 1rem 0;
+      line-height: 1.6rem;
+      font-size: 1rem;
+    }
+  
+    .contact-item {
+      margin-left: 0;
+      justify-content: center;
+    }
+  
+    .contact-item img {
+      width: 1.2rem;
+    }
+  
+    .mixes .mix-quote {
+      margin: 1rem 0;
+    }
+  
+    .mixes a.mix-link {
+      display: block;
+      margin: 0.5rem 0;
+      text-align: center;
+    }
+  
+    .image-top-right,
+    .image-bottom-left {
+      position: static;
+      width: 100%;
+      height: 200px;
+      margin: 1rem 0;
+      background-size: cover;
+      background-position: center;
+      mask-image: none;
+      -webkit-mask-image: none;
+    }
+  
+    .bottom {
+      height: auto;
+      padding: 2rem 1rem;
+    }
+  
+    .last-info {
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+  
+    .availability, .booking {
+      width: 90%;
+      min-height: auto;
+    }
+
+    .availability p {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        margin: 1rem 0;
+      }
+    
+      .availability p strong {
+        min-width: unset;
+        text-align: left;
+      }
+    
+      .availability p span {
+        display: block;
+        margin-left: 0;
+      }
+    
+      .availability {
+        padding: 1rem;
+        text-align: left;
+      }
+  
+    footer {
+      margin-top: 2rem;
+      padding: 1rem;
+      font-size: 0.8rem;
+    }
+  
+    .up-arrow, .scroll-arrow {
+      display: none;
+    }
+  }
+  
