@@ -1,10 +1,9 @@
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
-  
+
   html, body {
     height: 100%;
     margin: 0;
@@ -12,19 +11,19 @@
     overflow-y: scroll;
     scroll-behavior: smooth;
   }
-  
+
   header, .hex-grid, .bottom {
     scroll-snap-align: start;
-    scroll-snap-stop: always;  /* This prevents "skipping" multiple sections on fast scroll */
+    scroll-snap-stop: always;
     height: 100vh;
   }
-  
+
   body {
     background-color: #1a1a1a;
     color: #EEEEEE;
     font-family: "Titillium Web", sans-serif;
 }
-  
+
 /* HEADER */
   header {
     width: 100%;
@@ -39,33 +38,33 @@
     position: relative;
     transition: filter 0.5s ease;
   }
-  
+
   header.blur {
     filter: blur(6px);
   }
-  
-  
+
+
   header::after {
     content: "";
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
     background: rgba(0, 0, 0, 0.5); /* Overlay for contrast */
   }
-  
+
   header h1 {
     font-family: 'Orbitron', sans-serif;
     font-size: 5rem;
     letter-spacing: 4px;
     text-transform: uppercase;
   }
-  
+
   header p {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 2rem;
     letter-spacing: 2px;
     text-transform: uppercase;
   }
-  
+
   header.fade {
     opacity: 0;
     pointer-events: none;
@@ -78,13 +77,13 @@
     bottom: 1rem;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 3rem;
+    font-size: 2rem;
     color: #EEEEEE;
     opacity: 0.8;
     animation: bounce 2s infinite;
     z-index: 3;
   }
-  
+
   @keyframes bounce {
     0%, 100% {
       transform: translate(-50%, 0);
@@ -99,14 +98,14 @@
     top: 1rem;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 3rem;
+    font-size: 2rem;
     color: #EEEEEE;
     opacity: 0.8;
     animation: bounce 2s infinite;
     animation-delay: 1s;
     z-index: 3;
   }
-  
+
   @keyframes bounce {
     0%, 100% {
       transform: translate(-50%, 0);
@@ -115,28 +114,37 @@
       transform: translate(-50%, 10px);
     }
   }
-  
 
-  
+  .scroll-arrow, .up-arrow {
+    text-decoration: none;  
+  }  
+
+  .scroll-arrow:hover, .up-arrow:hover {
+    color: #D84040;
+  }
+
   section {
     position: relative;
     z-index: 1;
     margin: 0 auto;
     padding: 2rem 1rem;
   }
-  
+
   /* Hex Grid Container */
   .hex-grid {
     position: relative;
     width: 100%;
-    height: 100vh;  /* Or try 150vh for more space */
-    overflow: visible;
-    padding-bottom: 5rem; /* Extra breathing room */
+    height: 100vh;
+    overflow: hidden; /* Important for absolute positioning of child elements */
+    padding-bottom: 5rem;
+    display: flex; /* Kept for centering the 'about' hex */
+    justify-content: center;
+    align-items: center;
   }
 
   .hex {
-    position: absolute;
-    background-color: #373737c8;
+    position: absolute; /* Reverted to absolute for precise placement */
+    background-color: #373737d5;
     clip-path: polygon(
       25% 0%, 75% 0%, 100% 50%,
       75% 100%, 25% 100%, 0% 50%
@@ -150,256 +158,243 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-  
-    aspect-ratio: 1.18 / 1;
-    width: clamp(250px, 30vw, 400px);
+
+    aspect-ratio: 1.18 / 1; /* Keeping original ratio for consistent hex shape */
+    width: clamp(280px, 30vw, 400px); /* Base width for hexes */
     min-height: auto;
-    overflow: hidden;
+    overflow: hidden; /* Keep hidden to respect clip-path */
   }
-  
+
   .hex h1, .hex h2, .hex p {
     font-size: clamp(0.9rem, 1.2vw + 0.5rem, 1.4rem);
     line-height: 1.4;
-    padding: 0 1rem;
+    padding: 0 1rem; /* Base padding */
   }
-  
+
   .hex-grid {
-    max-width: 1200px;
     margin: 0 auto;
-  }
-  
-  
-  
-  .hex h2 {
-    margin-bottom: 1rem;
-    margin-top: 0.5rem;
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1.7rem;
   }
 
   .hex h1 {
-    margin-bottom: 1rem;
-    margin-top: 1rem;
+    margin-top: 2rem;
     font-family: 'Orbitron', sans-serif;
-    font-size: 2.4rem;
-  }
-  
-  .hex ul {
-    margin: 0 1rem;
-    align-items: left;
-    font-family: "Titillium Web", sans-serif;
-    font-size: 1.5rem;
-    gap: 1rem; /* Space between icon and text */
+    font-size: 2.7rem;
   }
 
+
+  /* Specific paragraph styling for better fit */
   .hex p {
-    margin: 0 4rem;
+    margin: 0 2.5rem; 
     flex-grow: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: "Titillium Web", sans-serif;
-    font-size: 1.4rem;
-    margin-bottom: 2rem;
-    line-height: 2.5rem;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 1.5rem; 
+    margin-bottom: 1rem; 
+    line-height: 1.8rem; 
   }
-  
-  
+
   .hex a {
     text-decoration: none;
     cursor: pointer;
-    color: EEEEEE;
-  }
-  
-  .hex a:hover {
-    text-decoration: underline;
-    color: #D84040;
-    text-shadow: 0 0 1px #EEEEEE;
-  }
-  
-  ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  ul li {
-    margin: 0.5rem 0;
+    color: #EEEEEE;
   }
 
+
   .about {
-    top: 15%;
+    top: 12%; 
     left: 50%;
     transform: translateX(-50%);
     width: 90%;
-    max-width: 700px;
+    max-width: 650px;
   }
 
-/* CONTACT HEX */
-
-.contact, .mixes {
-    width: 90%;
-    max-width: 400px;
-  }
-
-  .contact {
-    top: 5%;
-    left: 0;
-    transform: translateX(-20%);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Left-align the content */
-    padding: 2rem;
-    gap: 1.5rem; /* Space between each item */
-  }
-  
-  .contact h2 {
-    align-self: center; /* Keep the title centered */
-    margin-bottom: .5rem;
-  }
-  
-  .contact-item {
-    display: flex;
-    align-items: center;
-    gap: 1rem; /* Space between icon and text */
-    margin-left: 4rem;
-    margin-top: .5rem;
-  }
-  
-  .contact-item img {
-    width: 1.8rem;    /* Controls the size */
-    height: auto;     /* Keeps the original aspect ratio */
-  }
-  
-  .contact-item a {
-    color: #D84040;
-    text-decoration: none;
-    transition: text-shadow 0.3s;
-    font-family: "Titillium Web", sans-serif;
-    font-size: 1.3rem;
-  }
-  
-  .contact-item a:hover {
-    color: #8E1616;
-    text-shadow: 0 0 7px #EEEEEE;
-  }
-  
-  
-  .mixes {
-    bottom: 5%;
-    right: 0;
-    transform: translateX(20%);
-  }
-  
-
-  .mixes a.mix-link {
-    font-family: "Titillium Web", sans-serif;
-    font-size: 1.3rem;
-    color: #D84040;
-    text-decoration: none;
-    margin-bottom: 0.5rem;
-    margin-top: 1rem;
-  }
-  
-  .mixes a.mix-link:hover {
-    color: #8E1616;
-    text-shadow: 0 0 7px #EEEEEE;
-  }
-  
-  .mix-quote p {
-    font-size: 0.9rem;
-    font-family: 'Titillium Web', sans-serif;
-    font-style: italic;
-    color: #EEEEEE;
-    line-height: 1.4rem;
+  .mix-link-text {
+    width: 100%;
     text-align: center;
-    margin: 0.3rem 1rem;
-  }
+    margin-top: 40rem;
+}
   
-  .quote-attribution {
-    font-size: 0.8rem;
-    opacity: 0.7;
+  .mix-link-text p {
+    font-size: 1.5rem;
+    font-family: 'Orbitron';
+    color: #EEEEEE;
   }
-  
 
-  .image-top-right {
+
+/* NEW: Individual Mix Hexagons */
+.mixes-hex-2 {
+    background-color: #373737c8; 
+    width: 450px;
+    padding: 1rem; 
+    cursor: pointer;
+    text-decoration: none;
+    top: 50%; 
+    left: 2%;
+    transform: translateX(0%);
+    z-index: 3; 
+    margin-bottom: 6rem;
+}
+
+.mixes-hex-1 {
+    background-color: #373737c8; 
+    width: 450px; 
+    padding: 1rem; 
+    cursor: pointer; 
+    text-decoration: none; 
+    top: 50%; 
+    right: 2%;
+    transform: translateX(0%);
+    z-index: 3; 
+}
+
+.mixes-hex-1 .mix-title {
+    margin-bottom: 1rem; 
+}
+
+.mixes-hex-2 .mix-title {
+    margin-bottom: 2rem;
+}
+
+.mixes-hex-1 h2, .mixes-hex-2 h2 {
+    font-family: "Orbitron", sans-serif;
+    color: #D84040;
+    text-decoration: none;
+    margin-bottom: 0; 
+    font-size: 1.7rem;
+}
+
+.mixes-hex-1 .mix-description,
+.mixes-hex-2 .mix-description {
+    margin-bottom: 1.5rem;
+}
+
+.mixes-hex-1 p, .mixes-hex-2 p {
+    font-size: 1.1rem;
+    margin: 0 auto; 
+    padding: 0 2rem; 
+    max-width: 95%;
+    line-height: 1.5rem;
+}
+
+.mix-quote p {
+    font-size: clamp(0.65rem, 0.8vw, 0.9rem);
+    line-height: 1.1;
+    margin: 0.1rem;
+    padding: 0;
+}
+
+
+.mixes-hex-1 .quote-attribution {
+    font-size: clamp(0.7rem, 0.9vw, 1rem);
+    margin-top: 0.5rem; 
+    margin-bottom: 0; 
+    line-height: 1.2rem;
+    font-style: none;
+    color: #9e9e9e;
+}
+
+.mixes-hex-1 .mix-quote2 {
+    font-size: 1rem; 
+    line-height: 1.1;
+    margin: 0.1rem auto; 
+    padding: 0 1rem; 
+    font-style: italic; 
+    color: #9e9e9e;
+}
+
+.mixes-hex-1 .mix-quote,
+.mixes-hex-2 .mix-quote {
+    text-align: center; 
+    margin-top: 1rem; 
+}
+
+
+.mixes-hex-1:hover, .mixes-hex-2:hover {
+    transform: scale(1.02);
+    background-color: #4f4f4fae; 
+}
+
+
+/* Image Adjustments */
+.image-top-right {
     position: absolute;
     top: 0;
     right: 0;
-    width: 50vw;
-    height: 60vh;
-    background: url('image4.jpeg') center/cover no-repeat;
+    width: 55vw;
+    height: 65vh;
+    background: url('image4.jpeg') 40% 90% / 130% no-repeat;
     z-index: 0;
     filter: grayscale(100%);
     mask-image: 
-      linear-gradient(to top, transparent 5%, black 40%),
-      linear-gradient(to bottom, transparent 5%, black 40%),
-      linear-gradient(to left, transparent 5%, black 40%),
-      linear-gradient(to right, transparent 5%, black 40%);
+        linear-gradient(to top, transparent 1%, black 30%),
+        linear-gradient(to bottom, transparent 1%, black 30%),
+        linear-gradient(to left, transparent 1%, black 30%),
+        linear-gradient(to right, transparent 1%, black 30%);
     mask-composite: intersect;
     -webkit-mask-composite: destination-in;
     mask-repeat: no-repeat;
-  }
-  
-  .image-bottom-left {
+    }
+    
+    .image-top-left { /* Renamed class */
     position: absolute;
-    bottom: 0;
+    top: 0; /* Moved to top */
     left: 0;
-    width: 50vw;
-    height: 60vh;
-    background: url('image2.jpeg') center/cover no-repeat;
+    width: 55vw;
+    height: 65vh;
+    background: url('image2.jpeg') 40% 70%/140% no-repeat; /* Retaining original image */
     z-index: 0;
     filter: grayscale(100%);
     mask-image: 
-      linear-gradient(to top, transparent 5%, black 40%),
-      linear-gradient(to bottom, transparent 5%, black 40%),
-      linear-gradient(to left, transparent 5%, black 40%),
-      linear-gradient(to right, transparent 5%, black 40%);
+        linear-gradient(to top, transparent 1%, black 30%),
+        linear-gradient(to bottom, transparent 1%, black 30%),
+        linear-gradient(to left, transparent 1%, black 30%),
+        linear-gradient(to right, transparent 1%, black 30%);
     mask-composite: intersect;
     -webkit-mask-composite: destination-in;
     mask-repeat: no-repeat;
-  }
+    }
 
   .bottom {
     height: 100vh;
     display: flex;
-    justify-content: center; /* Horizontal center */
-    align-items: center;    /* Vertical center (to center content-wrapper) */
+    justify-content: center;
+    align-items: center;
     padding: 6rem 0;
   }
-  
+
   .last-info {
     display: flex;
-    justify-content: center;
     align-items: stretch;
-    gap: 2rem;
-    padding: 2rem;
-    flex-grow: 1; /* Let it grow to center itself */
-  }  
+    gap: 4rem;
+    flex-grow: 1;
+    margin: 4rem 0rem 4rem 0rem;
+  }
 
   .content-wrapper {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100%; /* Full height of bottom section */
+    height: 100%;
     width: 100%;
     max-width: 1200px;
   }
-  
-  
+
   .availability, .booking {
-    flex: 0 1 40%; /* For availability */
+    flex: 0 1 40%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: stretch;
     padding: 2rem;
     box-sizing: border-box;
-    background-color: #1D1616;
+    background-color: #191717;
     color: #EEEEEE;
     border-radius: 1rem;
     box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
   }
-  
+
   .booking {
     flex: 0 0 60%;
     border-radius: 1rem;
@@ -408,7 +403,7 @@
     box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
     display: flex;
     flex-direction: column;
-    align-items: center;     /* This centers content horizontally */
+    align-items: center;
     min-height: 500px;
     box-sizing: border-box;
   }
@@ -428,29 +423,29 @@
     align-items: baseline;
     gap: 1rem;
     text-align: left;
-    font-family: "Titillium Web", sans-serif;
+    font-family: 'Titillium Web', sans-serif;
     font-size: 1.1rem;
     line-height: 1.6rem;
-    margin: 0.5rem 2rem;
+    margin: 0.5rem 1rem;
   }
-  
+
   .availability p strong {
     color: #D84040;
-    min-width: 8rem;  /* Adjust this for spacing */
+    min-width: 8rem;
     text-align: left;
   }
-  
+
   .availability p span {
     color: #EEEEEE;
   }
-  
-  
+
+
   .booking h2 {
     font-family: 'Orbitron', sans-serif;
     font-size: 1.7rem;
     margin-bottom: 2rem;
   }
-  
+
   .booking form {
     width: 100%;
     max-width: 500px;
@@ -458,20 +453,20 @@
     flex-direction: column;
     gap: 1rem;
   }
-  
+
   .booking form input,
   .booking form textarea {
     padding: 0.9rem;
     border: none;
     border-radius: 5px;
     font-size: 1.1rem;
-    font-family: "Titillium Web", sans-serif;
+    font-family: 'Titillium Web', sans-serif;
   }
-  
+
   .booking form textarea {
-    min-height: 200px;
+    min-height: 150px;
   }
-  
+
   .booking form button {
     background-color: #D84040;
     color: #EEEEEE;
@@ -483,11 +478,11 @@
     transition: background-color 0.3s;
     font-family: "Orbitron", sans-serif;
   }
-  
+
   .booking form button:hover {
     background-color: #8E1616;
   }
-  
+
   .booking .up-arrow {
     position: absolute;
     top: 1rem;
@@ -500,16 +495,15 @@
     animation-delay: 1s;
     z-index: 3;
   }
-  
+
   footer {
     text-align: center;
     color: #EEEEEE;
     font-size: 0.9rem;
     padding: 1rem;
   }
-  
 
-
+  /* MEDIA QUERIES FOR RESPONSIVENESS */
   @media (max-width: 760px) {
     /* Remove scrolling lock */
     html, body {
@@ -517,12 +511,12 @@
       overflow-x: hidden;
       scroll-snap-type: none;
     }
-  
+
     header, .hex-grid, .bottom {
       height: auto;
       scroll-snap-align: none;
     }
-  
+
     header {
       height: 60vh;
       background-size: cover;
@@ -535,34 +529,35 @@
     header h1 {
         font-size: 2.5rem;
     }
-    
+
     header p {
         font-size: 1.2rem;
     }
-    
-    /* Center About BLUMP content */
+
+    /* About hex */
     .about {
         width: 90%;
         height: auto;
-        top: auto;
-        left: auto;
-        transform: none;
+        top: auto; /* Reset for mobile */
+        left: auto; /* Reset for mobile */
+        transform: none; /* Reset for mobile */
         margin: 0 auto;
         text-align: center;
+        padding: 1.5rem;
     }
-    
+
     .about h1 {
         font-size: 1.8rem;
         margin-bottom: 1rem;
     }
-    
+
     .about p {
-        font-size: 1.2rem;
+        font-size: 1rem;
         margin: 0.5rem 0;
         line-height: 1.6rem;
     }
 
-      
+
     .hex-grid {
       display: flex;
       flex-direction: column;
@@ -570,82 +565,104 @@
       gap: 2rem;
       padding: 2rem 1rem;
     }
-  
+
     .hex {
-      position: static;
+      position: static; /* Important for mobile layout with flexbox stacking */
       width: 90%;
       height: auto;
-      clip-path: none;
+      clip-path: none; /* Removed clip-path for mobile for better content flow */
       background: #373737;
-      border-radius: 1rem;
+      border-radius: 1rem; /* Added border-radius for a soft-cornered rectangle */
       padding: 1.5rem;
       box-shadow: 0 0 15px rgba(255,255,255,0.1);
       overflow: visible;
+      min-height: unset; /* Allow height to shrink on mobile */
+      aspect-ratio: unset; /* Allow aspect ratio to be dynamic */
     }
-  
+
     .hex h1, .hex h2 {
       text-align: center;
     }
-  
+
     .hex p {
-      margin: 1rem 0;
+      margin: .5rem 0;
       line-height: 1.6rem;
-      font-size: 1.2rem;
+      font-size: 1rem;
     }
-    
-    .contact, .mixes {
+      
+
+    .mixes-hex-1, .mixes-hex-2 {
+        position: static; /* Stack naturally */
+        width: 90%; /* Take full width on mobile */
+        max-width: unset;
         transform: none;
-        max-width: none;
+        padding: 1.5rem; /* Revert to standard hex padding */
+        clip-path: none; /* Removed clip-path for mobile */
+        border-radius: 1rem; /* Added border-radius for a soft-cornered rectangle */
+        margin-bottom: 0;
     }
 
-    .contact h2 {
-        margin-bottom: .1rem;
-    }
-  
-    .contact-item {
-      margin-left: 0;
-      justify-content: center;
-    }
-  
-    .contact-item img {
-      width: 1.2rem;
+    .mixes-hex-1 h2, .mixes-hex-2 h2 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
     }
 
-    .mixes a.mix-link {
-      display: block;
-      margin: 0.5rem 0;
-      text-align: center;
+    .mixes-hex-1 p, .mixes-hex-2 p {
+        font-size: 0.95rem;
+        line-height: 1.4rem;
+        margin: 0.3rem auto;
     }
-  
+
+    .mixes-hex-1 .mix-quote p, .mixes-hex-2 .mix-quote p {
+        font-size: 0.8rem;
+        line-height: 1.3rem;
+        margin: 0.2rem 0.5rem;
+    }
+
+    .mixes-hex-1 .quote-attribution, .mixes-hex-2 .quote-attribution {
+        font-size: 0.7rem;
+        margin-top: 0.3rem;
+    }
+
+    /* Mobile image treatment */
     .image-top-right {
-      position: static;
-      width: 100%;
-      height: 200px;
-      background-size: cover;
-      background-position: center;
-      mask-image: none;
-      -webkit-mask-image: none;
+        position: relative;
+        width: 100%;
+        height: 30vh;
+        background-position: center;
+        mask-image: none;
+        -webkit-mask-image: none;
+        margin: 0 auto;
+        display: block;
+        margin-bottom: 0;
     }
 
-    .image-bottom-left {
+    .hex-grid {
+        padding: 2rem 0 0 0;
+    }
+
+    .image-top-left { /* Still hide the now-top-left image on mobile */
         display: none;
     }
-  
+
     .bottom {
       height: auto;
-      padding: 1rem 1rem;
+      padding: 1rem 0;
     }
-  
+
     .last-info {
       flex-direction: column;
       align-items: center;
       gap: 2rem;
       padding: 0rem .1rem;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
     }
-  
+
     .availability, .booking {
       width: 90%;
       min-height: auto;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
     }
 
     .booking {
@@ -662,7 +679,7 @@
         gap: 0.5rem;
         margin: 1rem 0;
       }
-    
+
     .availability p strong {
         min-width: unset;
         text-align: left;
@@ -677,16 +694,15 @@
         padding: 1rem;
         text-align: left;
     }
-  
+
 
     footer {
       margin-top: 2rem;
       padding: 1rem;
       font-size: 0.8rem;
     }
-  
+
     .up-arrow, .scroll-arrow {
       display: none;
     }
   }
-  

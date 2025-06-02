@@ -11,62 +11,67 @@
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Agbalumo&family=Bungee+Inline&family=Caveat:wght@400..700&family=Courgette&family=Fascinate+Inline&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Oxanium:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=STIX+Two+Text:ital,wght@0,400..700;1,400..700&family=Shadows+Into+Light&family=Ubuntu+Condensed&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Agbalumo&family=Bungee+Inline&family=Caveat:wght@400..700&family=Courgette&family=Fascinate+Inline&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Oxanium:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=STIX+Two+Text:ital,wght@0,400..700;1,400..700&family=Shadows+Into+Light&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&family=Ubuntu+Condensed&display=swap" rel="stylesheet"></head>
+  <link href="https://fonts.googleapis.com/css2?family=Agbalumo&family=Bungee+Inline&family=Caveat:wght@400..700&family=Courgette&family=Fascinate+Inline&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Oxanium:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=STIX+Two+Text:ital,wght@0,400..700;1,400..700&family=Shadows+Into+Light&family=Titillium+Web:wght@400;600&family=Ubuntu+Condensed&display=swap" rel="stylesheet">
+</head>
 <body>
-  <header>
+  <header id="header">
     <h1>BLUMP</h1>
     <p>Familiar vibes, unforgettable energy</p>
-    <div class="scroll-arrow">↓</div>
+    <a href="#hex-grid" class="scroll-arrow">▼</a>
   </header>
 
-  <section class="hex-grid">
-    <div class="up-arrow">↑</div>
+  <section class="hex-grid" id="hex-grid">
+    <a href="#header" class="up-arrow">▲</a>
     <div class="hex about">
       <h1>About BLUMP</h1>
       <p>BLUMP (Eli Blumkin) is a Boston-born DJ with a background in piano and drums, blending musical instinct with house beats. He brings groovy house, disco edits, and nostalgic EDM remixes to life, energizing dance floors from Copenhagen to St. Louis. His sets aim to bring back the infectious grooves that the dancefloors deserve.</p>
     </div>
 
-    <div class="hex contact">
-        <h2>Contact</h2>
-        <div class="contact-item">
-            <img src="gmail.png" alt="Email Icon">
-            <a href="mailto:blump.info@gmail.com">blump.info@gmail.com</a>
-        </div>
-        <div class="contact-item">
-            <img src="phone.png" alt="Phone Icon">
-            <a href="tel:8574527295">857.452.7295</a>
-        </div>
-        <div class="contact-item">
-            <img src="soundcloud.svg" alt="SoundCloud Icon">
-            <a href="https://on.soundcloud.com/P8ebhFK46ctzDqU85K" target="_blank">BLUMP</a>
-        </div>
+    <div class="mix-link-text">
+      <p>← Click to listen on SoundCloud →</p>
     </div>
 
-    <div class="hex mixes">
-      <h2>Mixes & Sets</h2>
-      <a href="https://soundcloud.com/blumpp/la-boucherie-set" target="_blank" class="mix-link">La Boucherie Set</a>
-      <div class="mix-quote">
-        <p>"Eli is super easy to work with. As a DJ, he followed the agreed-upon music profile. He spreads good energy and makes sure the guests have a party."</p>
-        <p class="quote-attribution">– Milad Ghorbany, La Boucherie Venue Manager</p>
-      </div>
-      <a href="https://soundcloud.com/blumpp/disco-den-vol-1" target="_blank" class="mix-link">Disco Den Vol. 1</a>
+    <div class="hex mixes-hex-1">
+      <a href="https://soundcloud.com/blumpp/la-boucherie-set">
+          <div class="mix-title">
+              <h2>La Boucherie Set</h2>
+          </div>
+          <div class="mix-description">
+              <p>Live from Copenhagen's La Boucherie – over 200 attendees, cocktail vibes, and deep house grooves.</p>
+          </div>
+          <div class="mix-quote">
+              <p class="mix-quote2">"Eli is super easy to work with. As a DJ, he followed the agreed-upon music profile. He spreads good energy and makes sure the guests have a party."</p>
+              <p class="quote-attribution">- Mikkel Ghorbany, La Boucherie Venue Manager</p>
+          </div>
+      </a>
+    </div>
+
+    <div class="hex mixes-hex-2">
+        <a href="https://soundcloud.com/blumpp/disco-den-vol-1">
+            <div class="mix-title">
+                <h2>Disco Den Vol. 1</h2>
+            </div>
+            <div class="mix-description">
+                <p>A tribute to house classics and disco edits that get the body moving and the nostalgia flowing.</p>
+            </div>
+            </a>
     </div>
 
     <div class="image-top-right"></div>
-    <div class="image-bottom-left"></div>
-    <div class="scroll-arrow">↓</div>
+    <div class="image-top-left"></div>
+    <a href="#bottom" class="scroll-arrow">▼</a>
   </section>
 
-  <section class="bottom">
-    <div class="up-arrow">↑</div>
+  <section class="bottom" id="bottom">
+    <a href="#hex-grid" class="up-arrow">▲</a>
     <div class="content-wrapper">
 
       <div class="last-info">
         <div class="availability">
           <h2>Availability and Booking Info</h2>
-          <p><strong>Summer 2025:</strong> Based in New York City — now booking bars, clubs, and events</p>
-          <p><strong>Fall 2025 & Spring 2026:</strong> Based in St. Louis, MO — available for college events and club nights</p>
-          <p><strong>Rates:</strong> $50–100/hr — pricing varies by event type and duration</p>
+          <p><strong>Summer 2025:</strong> Based in New York City <br>— now booking bars, clubs, and events</p>
+          <p><strong>Fall 2025 & Spring 2026:</strong> Based in St. Louis, MO <br>— available for college events and club nights</p>
+          <p><strong>Rates:</strong> $50–100/hr <br>— pricing varies by event type and duration</p>
         </div>
 
         <div class="booking">
@@ -77,9 +82,9 @@
               <textarea name="message" placeholder="Message" required></textarea>
               <input type="hidden" name="_subject" value="">
               <input type="hidden" name="_cc" value="blump.info@gmail.com">
-              <button type="submit">Send Booking Inquiry</button>
+              <button type="submit">Send Message</button>
             </form>
-        </div>
+         </div>
       </div>
 
       <footer>
@@ -98,11 +103,11 @@
 
   <script>
     const header = document.querySelector('header');
-    
+
     window.addEventListener('scroll', () => {
       const scrollY = window.scrollY;
       const blurValue = Math.min(scrollY / 15, 6); // Max 6px blur
-    
+
       header.style.filter = `blur(${blurValue}px)`;
     });
     </script>
