@@ -589,7 +589,10 @@
       line-height: 1.6rem;
       font-size: 1rem;
     }
-      
+
+    .mix-link-text {
+        display: none;
+    }
 
     .mixes-hex-1, .mixes-hex-2 {
         position: static; /* Stack naturally */
