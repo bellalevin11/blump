@@ -587,7 +587,7 @@
     .hex p {
       margin: .5rem 0;
       line-height: 1.6rem;
-      font-size: 1rem;
+      font-size: 1.1rem;
     }
 
     .mix-link-text {
@@ -616,15 +616,21 @@
         margin: 0.3rem auto;
     }
 
-    .mixes-hex-1 .mix-quote p, .mixes-hex-2 .mix-quote p {
-        font-size: 0.8rem;
+    .mixes-hex-1 .mix-quote p {
+        font-size: .9rem; 
         line-height: 1.3rem;
         margin: 0.2rem 0.5rem;
+        padding: 0;
     }
 
-    .mixes-hex-1 .quote-attribution, .mixes-hex-2 .quote-attribution {
+    .mixes-hex-1 .quote-attribution  {
         font-size: 0.7rem;
         margin-top: 0.3rem;
+    }
+
+    .mix-description p {
+        padding: 0;
+        font-size: 1.1rem;
     }
 
     /* Mobile image treatment */
