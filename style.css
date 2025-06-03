@@ -210,6 +210,40 @@
     max-width: 650px;
   }
 
+  /* SoundCloud Icon */
+  .soundcloud-link {
+    position: absolute;
+    z-index: 10; /* Make sure it’s above the hexes */
+  }
+  
+  .mixes-hex-1 .soundcloud-link {
+    top: calc(50% + 130px); /* Adjust as needed */
+    right: 45%;
+  }
+  
+  .mixes-hex-2 .soundcloud-link {
+    top: calc(50% + 130px); /* Adjust as needed */
+    left: 45%;
+  }
+  
+  .soundcloud-icon {
+    width: 35px;
+    height: auto;
+    animation: pulse 2s infinite;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .soundcloud-icon:hover {
+    transform: scale(1.3);
+  }
+  
+  @keyframes pulse {
+    0%, 100% { transform: scale(1.5); }
+    50% { transform: scale(1.7); }
+  }
+  
+
   .mix-link-text {
     width: 100%;
     text-align: center;
@@ -589,6 +623,42 @@
       line-height: 1.6rem;
       font-size: 1.1rem;
     }
+      
+    .mixes-hex-1,
+    .mixes-hex-2 {
+        position: relative; /* Ensure hex is relative for icon positioning */
+    }
+
+    .mixes-hex-1 .soundcloud-link {
+        position: absolute;
+        top: 27rem;   /* Adjust as needed */
+        right: 0.5rem; /* Icons in top-right corner */
+        z-index: 10;
+    }
+
+    .mixes-hex-2 .soundcloud-link {
+        position: absolute;
+        top: 46rem;   /* Adjust as needed */
+        right: -11rem; /* Icons in top-right corner */
+        z-index: 10;
+    }
+
+    .soundcloud-icon {
+        width: 40px;
+        height: auto;
+        animation: pulse 2s infinite;
+        cursor: pointer;
+    }
+
+    @keyframes pulse {
+        0%, 100% {
+        transform: scale(1);
+        }
+        50% {
+        transform: scale(1.2);
+        }
+    }
+      
 
     .mix-link-text {
         display: none;
