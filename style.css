@@ -624,13 +624,11 @@
       /* Override the general (desktop) positioning for mobile */
         position: relative; 
         bottom: 100px;           /* Adjust this value. 5px (or even 0px) should pull it closer to the top. */
-        left: 90px; 
+        left: 100px; 
         z-index: 10;        /* Keep a high z-index to ensure it's always on top */
     }
         
     .soundcloud-icon {
-        bottom: 100px;           /* Adjust this value. 5px (or even 0px) should pull it closer to the top. */
-        left: 100px; 
         width: 35px; /* Keep the smaller size for mobile */
         height: auto;
       /* Animation and transition are fine as they are */
