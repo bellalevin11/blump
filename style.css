@@ -184,7 +184,7 @@
 
   /* Specific paragraph styling for better fit */
   .hex p {
-    margin: 0 2.5rem; 
+    margin: 0 1.5rem; 
     flex-grow: 1;
     display: flex;
     align-items: center;
@@ -196,6 +196,8 @@
   }
 
   .hex a {
+    margin-top: 18rem;
+    margin-right: 11rem;
     text-decoration: none;
     cursor: pointer;
     color: #EEEEEE;
@@ -210,51 +212,39 @@
     max-width: 650px;
   }
 
-  /* SoundCloud Icon */
+  .hex-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .inside-info1, .inside-info2 {
+    margin-top: 3rem;
+  }
+  
+  /* Anchor inside the box */
   .soundcloud-link {
     position: absolute;
-    z-index: 10; /* Make sure it’s above the hexes */
-  }
-  
-  .mixes-hex-1 .soundcloud-link {
-    top: calc(50% + 130px); /* Adjust as needed */
-    right: 45%;
-  }
-  
-  .mixes-hex-2 .soundcloud-link {
-    top: calc(50% + 130px); /* Adjust as needed */
-    left: 45%;
+    top: 0.6rem;
+    right: 0.6rem;
+    z-index: 5;
   }
   
   .soundcloud-icon {
-    width: 35px;
+    width: 40px;
     height: auto;
     animation: pulse 2s infinite;
     transition: transform 0.3s ease;
     cursor: pointer;
   }
   
-  .soundcloud-icon:hover {
-    transform: scale(1.3);
-  }
-  
   @keyframes pulse {
-    0%, 100% { transform: scale(1.5); }
-    50% { transform: scale(1.7); }
-  }
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+  }  
+
   
 
-  .mix-link-text {
-    width: 100%;
-    text-align: center;
-    margin-top: 40rem;
-}
-  
-  .mix-link-text p {
-    font-size: 1.5rem;
-    font-family: 'Orbitron';
-    color: #EEEEEE;
-  }
 
 
 /* NEW: Individual Mix Hexagons */
@@ -283,11 +273,11 @@
     z-index: 3; 
 }
 
-.mixes-hex-1 .mix-title {
+.mix-title1{
     margin-bottom: 1rem; 
 }
 
-.mixes-hex-2 .mix-title {
+.mix-title2 {
     margin-bottom: 2rem;
 }
 
@@ -299,14 +289,13 @@
     font-size: 1.7rem;
 }
 
-.mixes-hex-1 .mix-description,
-.mixes-hex-2 .mix-description {
+.mix-description1,
+.mix-description2 {
     margin-bottom: 1.5rem;
 }
 
 .mixes-hex-1 p, .mixes-hex-2 p {
     font-size: 1.1rem;
-    margin: 0 auto; 
     padding: 0 2rem; 
     max-width: 95%;
     line-height: 1.5rem;
@@ -317,10 +306,11 @@
     line-height: 1.1;
     margin: 0.1rem;
     padding: 0;
+    margin: 0.1rem 2rem; 
 }
 
 
-.mixes-hex-1 .quote-attribution {
+.quote-attribution {
     font-size: clamp(0.7rem, 0.9vw, 1rem);
     margin-top: 0.5rem; 
     margin-bottom: 0; 
@@ -329,17 +319,15 @@
     color: #9e9e9e;
 }
 
-.mixes-hex-1 .mix-quote2 {
+.mix-quote2 {
     font-size: 1rem; 
     line-height: 1.1;
-    margin: 0.1rem auto; 
     padding: 0 1rem; 
     font-style: italic; 
     color: #9e9e9e;
 }
 
-.mixes-hex-1 .mix-quote,
-.mixes-hex-2 .mix-quote {
+.mix-quote2 {
     text-align: center; 
     margin-top: 1rem; 
 }
@@ -624,39 +612,28 @@
       font-size: 1.1rem;
     }
       
-    .mixes-hex-1,
-    .mixes-hex-2 {
-        position: relative; /* Ensure hex is relative for icon positioning */
+    .hex-inner {
+        position: relative; /* This is already set in your general CSS, but vital for absolute children */
+        width: 100%;        /* Ensure it takes full width of its parent */
+        height: 100%;       /* Ensure it takes full height of its parent */
+        /* Adding min-height here can help if content is very short */
+        min-height: 120px; /* Adjust this value if hex-inner collapses too much */
     }
-
-    .mixes-hex-1 .soundcloud-link {
-        position: absolute;
-        top: 27rem;   /* Adjust as needed */
-        right: 0.5rem; /* Icons in top-right corner */
-        z-index: 10;
+        
+    .soundcloud-link {
+      /* Override the general (desktop) positioning for mobile */
+        position: relative; 
+        bottom: 100px;           /* Adjust this value. 5px (or even 0px) should pull it closer to the top. */
+        left: 80px; 
+        z-index: 10;        /* Keep a high z-index to ensure it's always on top */
     }
-
-    .mixes-hex-2 .soundcloud-link {
-        position: absolute;
-        top: 46rem;   /* Adjust as needed */
-        right: -11rem; /* Icons in top-right corner */
-        z-index: 10;
-    }
-
+        
     .soundcloud-icon {
-        width: 40px;
+        bottom: 100px;           /* Adjust this value. 5px (or even 0px) should pull it closer to the top. */
+        left: 100px; 
+        width: 35px; /* Keep the smaller size for mobile */
         height: auto;
-        animation: pulse 2s infinite;
-        cursor: pointer;
-    }
-
-    @keyframes pulse {
-        0%, 100% {
-        transform: scale(1);
-        }
-        50% {
-        transform: scale(1.2);
-        }
+      /* Animation and transition are fine as they are */
     }
       
 
