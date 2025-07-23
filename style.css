@@ -631,6 +631,7 @@
     .soundcloud-icon {
         width: 35px; /* Keep the smaller size for mobile */
         height: auto;
+        margin-left: 5rem;
       /* Animation and transition are fine as they are */
     }
       
