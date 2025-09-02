@@ -191,7 +191,7 @@
     justify-content: center;
     font-family: 'Titillium Web', sans-serif;
     font-size: 1.5rem; 
-    margin-bottom: 1rem; 
+    margin-bottom: .5rem; 
     line-height: 1.8rem; 
   }
 
@@ -232,19 +232,10 @@
   
   .soundcloud-icon {
     width: 40px;
+    margin-top: 1rem;
     height: auto;
-    animation: pulse 2s infinite;
-    transition: transform 0.3s ease;
     cursor: pointer;
   }
-  
-  @keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.3); }
-  }  
-
-  
-
 
 
 /* NEW: Individual Mix Hexagons */
@@ -448,7 +439,7 @@
     font-family: 'Titillium Web', sans-serif;
     font-size: 1.1rem;
     line-height: 1.6rem;
-    margin: 0.5rem 1rem;
+    margin: 1rem 1rem;
   }
 
   .availability p strong {
@@ -732,7 +723,7 @@
         flex-direction: column;
         align-items: flex-start;
         gap: 0.5rem;
-        margin: 1rem 0;
+        margin: 1rem;
       }
 
     .availability p strong {
