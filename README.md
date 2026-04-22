@@ -91,6 +91,35 @@ You can combine both variables if needed:
 SITE_URL=https://username.github.io BASE_PATH=/repo-name/ npm run build
 ```
 
+## GitHub Pages Deployment
+
+This repo deploys to GitHub Pages with GitHub Actions, not with the legacy "Deploy from a branch" Jekyll flow.
+
+What was wrong before:
+
+- There was no `.github/workflows/deploy.yml`, so GitHub Pages could fall back to default branch-based publishing.
+- That default behavior is why GitHub Pages was trying to treat the repo like a Jekyll site instead of building the Astro app.
+
+What this repo now uses:
+
+- [astro.config.mjs](/Users/blevin22_1/Desktop/everything/blump/astro.config.mjs) sets `site` to `https://djblump.com` and `output: "static"`.
+- [public/CNAME](/Users/blevin22_1/Desktop/everything/blump/public/CNAME) preserves the custom domain.
+- [public/.nojekyll](/Users/blevin22_1/Desktop/everything/blump/public/.nojekyll) ensures the published output is not processed as a Jekyll site.
+- [.github/workflows/deploy.yml](/Users/blevin22_1/Desktop/everything/blump/.github/workflows/deploy.yml) checks out the repo, installs Node dependencies, builds Astro, uploads `dist/`, and deploys with GitHub Pages actions.
+
+Repository settings needed on GitHub:
+
+1. Go to `Settings` -> `Pages`.
+2. Under `Build and deployment`, set `Source` to `GitHub Actions`.
+3. Keep the custom domain set to `djblump.com`.
+
+Deployment flow:
+
+1. Push to `main`.
+2. GitHub Actions runs the Pages workflow.
+3. Astro builds the site to `dist/`.
+4. The workflow uploads `dist/` and deploys it to GitHub Pages.
+
 ## Media notes
 
 The current build uses local placeholder/event imagery from the existing project. Swap in final photography or short looping background media later without changing the page structure.
