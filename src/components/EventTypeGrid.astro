@@ -1,0 +1,38 @@
+---
+import SectionHeading from "./SectionHeading.astro";
+import { eventTypes, siteMeta } from "../data/site";
+---
+
+<section id="experience">
+  <div class="section-shell">
+    <div class="grid gap-6 lg:grid-cols-[0.88fr_1.12fr]">
+      <div class="lg:self-start">
+        <SectionHeading
+          eyebrow="Experience"
+          title="Built for different rooms, not one-note nights."
+          intro="BLUMP’s booking profile works across social spaces where the music needs taste, pacing, and enough edge to actually move the room."
+          titleClass="max-w-[10ch]"
+          introClass="max-w-[30rem]"
+        />
+          <p class="mt-5 text-sm uppercase tracking-[0.22em] text-snow-200/55">
+            {siteMeta.location}
+          </p>
+        </div>
+
+      <div class="grid gap-3 sm:grid-cols-2">
+        {eventTypes.map((event, index) => (
+          <article class="panel p-4 sm:p-5">
+            <div class="flex items-center justify-between gap-4">
+              <p class="text-xs uppercase tracking-[0.22em] text-accent-400">{event.eyebrow}</p>
+              <span class="text-xs font-semibold uppercase tracking-[0.24em] text-snow-200/40">
+                0{index + 1}
+              </span>
+            </div>
+            <h3 class="mt-3 font-display text-[1.65rem] text-snow-100">{event.label}</h3>
+            <p class="mt-2 text-sm leading-6 text-snow-200/70">{event.description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

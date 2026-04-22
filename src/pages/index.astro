@@ -1,0 +1,25 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Hero from "../components/Hero.astro";
+import About from "../components/About.astro";
+import FeaturedSets from "../components/FeaturedSets.astro";
+import EventTypeGrid from "../components/EventTypeGrid.astro";
+import SocialProof from "../components/SocialProof.astro";
+import ContactForm from "../components/ContactForm.astro";
+import Footer from "../components/Footer.astro";
+import { siteMeta } from "../data/site";
+---
+
+<Layout title={siteMeta.title} description={siteMeta.description}>
+  <Navbar />
+  <main class="space-y-2 pb-6 sm:space-y-4">
+    <Hero />
+    <About />
+    <FeaturedSets />
+    <EventTypeGrid />
+    <SocialProof />
+    <ContactForm />
+  </main>
+  <Footer />
+</Layout>

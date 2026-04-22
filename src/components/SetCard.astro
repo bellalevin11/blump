@@ -1,0 +1,39 @@
+---
+const soundcloudIcon = `${import.meta.env.BASE_URL}images/soundcloud.svg`;
+
+interface Props {
+  set: {
+    title: string;
+    description: string;
+    href: string;
+    platform: string;
+    length: string;
+  };
+}
+
+const { set } = Astro.props;
+---
+
+<article class="panel flex h-full flex-col p-5 sm:p-6">
+  <div class="flex items-start justify-between gap-4">
+    <div>
+      <p class="text-xs uppercase tracking-[0.24em] text-snow-200/50">Featured set</p>
+      <h3 class="mt-2 font-display text-xl text-snow-100 sm:text-[1.45rem]">{set.title}</h3>
+    </div>
+    <span class="rounded-full border border-white/10 bg-black/20 px-3 py-1 text-xs uppercase tracking-[0.18em] text-snow-200/65">
+      {set.length}
+    </span>
+  </div>
+
+  <p class="mt-4 flex-1 text-sm leading-6 text-snow-200/70">{set.description}</p>
+
+  <div class="mt-6 flex items-center justify-between gap-4">
+    <div class="flex items-center gap-2 text-sm text-snow-200/60">
+      <img src={soundcloudIcon} alt="" class="h-5 w-5 opacity-80" />
+      <span>{set.platform}</span>
+    </div>
+    <a href={set.href} target="_blank" rel="noreferrer" class="button-secondary px-4 py-2.5 text-xs uppercase tracking-[0.22em]">
+      Open Set
+    </a>
+  </div>
+</article>

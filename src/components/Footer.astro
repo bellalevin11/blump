@@ -1,0 +1,22 @@
+---
+import { siteMeta, socialLinks } from "../data/site";
+---
+
+<footer class="border-t border-white/10">
+  <div class="container-shell flex flex-col gap-8 py-8 sm:flex-row sm:items-center sm:justify-between">
+    <div>
+      <p class="font-display text-xl tracking-[0.22em] text-snow-100">{siteMeta.name}</p>
+      <p class="mt-2 text-sm text-snow-200/55">
+        © {new Date().getFullYear()} BLUMP. All rights reserved.
+      </p>
+    </div>
+
+    <div class="flex flex-wrap items-center gap-5">
+      {socialLinks.map((link) => (
+        <a href={link.href} target={link.href.startsWith("http") ? "_blank" : undefined} rel="noreferrer" class="text-sm text-snow-200/70 transition hover:text-accent-400">
+          {link.label}
+        </a>
+      ))}
+    </div>
+  </div>
+</footer>

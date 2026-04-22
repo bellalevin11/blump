@@ -1,0 +1,46 @@
+---
+import SectionHeading from "./SectionHeading.astro";
+import { galleryImages } from "../data/site";
+
+const heightClasses = {
+  sm: "aspect-[4/3]",
+  md: "aspect-[5/6]",
+  lg: "aspect-[4/5]",
+  xl: "aspect-[4/6]"
+} as const;
+---
+
+<section id="gallery">
+  <div class="section-shell">
+    <div class="flex flex-col gap-10">
+      <SectionHeading
+        eyebrow="Visuals"
+        title="A gallery that sells atmosphere, not noise."
+        intro="The current build uses local image placeholders so the layout is production-ready now and easy to swap with final media later."
+      />
+
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-12">
+        {galleryImages.map((image, index) => (
+          <figure
+            class:list={[
+              "group panel overflow-hidden lg:col-span-6",
+              index === 0 && "lg:col-span-5",
+              index === 1 && "lg:col-span-3",
+              index === 2 && "lg:col-span-4",
+              index === 3 && "lg:col-span-4"
+            ]}
+          >
+            <div class:list={["overflow-hidden", heightClasses[image.height]]}>
+              <img
+                src={image.src}
+                alt={image.alt}
+                loading="lazy"
+                class="h-full w-full object-cover transition duration-500 group-hover:scale-[1.04] group-hover:brightness-110"
+              />
+            </div>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

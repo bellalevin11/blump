@@ -1,0 +1,19 @@
+---
+interface Props {
+  testimonial: {
+    quote: string;
+    name: string;
+    role: string;
+  };
+}
+
+const { testimonial } = Astro.props;
+---
+
+<article class="panel h-full p-5 sm:p-6">
+  <p class="font-display text-xl leading-8 text-snow-100 sm:text-[1.6rem]">“{testimonial.quote}”</p>
+  <div class="mt-5 border-t border-white/10 pt-4">
+    <p class="text-sm font-semibold uppercase tracking-[0.18em] text-snow-100">{testimonial.name}</p>
+    <p class="mt-2 text-sm text-snow-200/60">{testimonial.role}</p>
+  </div>
+</article>

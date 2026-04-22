@@ -1,0 +1,23 @@
+---
+import SectionHeading from "./SectionHeading.astro";
+import SetCard from "./SetCard.astro";
+import { featuredSets } from "../data/site";
+---
+
+<section id="sets" class="relative">
+  <div class="section-shell">
+    <div class="flex flex-col gap-6">
+      <SectionHeading
+        eyebrow="Sets"
+        title="Three mixes that show the BLUMP range."
+        intro="These placeholder featured sets are powered by local data, so swapping titles, descriptions, and links later stays simple."
+      />
+
+      <div class="grid gap-4 lg:grid-cols-3">
+        {featuredSets.map((set) => (
+          <SetCard set={set} />
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,25 @@
+---
+import SectionHeading from "./SectionHeading.astro";
+import TestimonialCard from "./TestimonialCard.astro";
+import { testimonials } from "../data/site";
+---
+
+<section id="social-proof">
+  <div class="section-shell">
+    <div class="flex flex-col gap-6">
+      <SectionHeading
+        eyebrow="Reviews"
+        title="Enough signal for promoters, planners, and hosts to trust the booking."
+        intro="These cards are written to feel grounded and believable, with room for real testimonials once you’re ready to replace the placeholders."
+        titleClass="max-w-[14ch]"
+        introClass="max-w-[34rem]"
+      />
+
+      <div class="grid gap-3 lg:grid-cols-3">
+        {testimonials.map((testimonial) => (
+          <TestimonialCard testimonial={testimonial} />
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

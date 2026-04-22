@@ -1,0 +1,63 @@
+---
+import SectionHeading from "./SectionHeading.astro";
+import { bookingReasons, genreTags, siteMeta, withBase } from "../data/site";
+
+const aboutImage = withBase("/images/gallery-01.jpeg");
+---
+
+<section id="about" class="relative">
+  <div class="section-shell">
+    <div class="two-column-balanced lg:items-start">
+      <div class="panel panel-padding relative overflow-hidden">
+        <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent-500/60 to-transparent"></div>
+        <SectionHeading
+          eyebrow="About"
+          title="A cleaner musical instinct with a nightlife edge."
+          intro="BLUMP is the artist project of Eli Blumkin, a DJ with a background in piano and drums who builds sets around groove, familiarity, and momentum."
+          className="max-w-2xl"
+          titleClass="max-w-[15ch]"
+          introClass="max-w-[36rem]"
+        />
+
+        <div class="content-stack mt-8 max-w-[38rem]">
+          <p class="prose-muted">
+            The sound lives between polished house, disco edits, and nostalgic EDM remixes, built to move a room without feeling overworked.
+          </p>
+          <p class="text-sm uppercase tracking-[0.18em] text-snow-200/55">
+            {siteMeta.location}
+          </p>
+        </div>
+
+        <div class="mt-7 flex flex-wrap gap-3">
+          {genreTags.map((tag) => (
+            <span class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-snow-200/85">
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <div class="panel overflow-hidden">
+          <div class="grid sm:grid-cols-[0.95fr_1.05fr]">
+            <div class="min-h-64 bg-cover bg-center" style={`background-image: url('${aboutImage}');`}></div>
+            <div class="panel-padding content-stack">
+              <p class="eyebrow">Why book BLUMP</p>
+              <div class="content-stack mt-1">
+                {bookingReasons.map((reason, index) => (
+                  <div class="border-b border-white/10 pb-5 last:border-b-0 last:pb-0">
+                    <p class="text-xs font-semibold uppercase tracking-[0.24em] text-accent-400">
+                      0{index + 1}
+                    </p>
+                    <h3 class="mt-2 font-display text-xl text-snow-100">{reason.title}</h3>
+                    <p class="prose-small mt-2 max-w-[26rem]">{reason.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

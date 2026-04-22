@@ -1,0 +1,123 @@
+---
+import SectionHeading from "./SectionHeading.astro";
+import { siteMeta } from "../data/site";
+
+const formspreeAction = "https://formspree.io/f/your-form-id";
+---
+
+<section id="booking">
+  <div class="section-shell">
+    <div class="two-column-balanced items-start">
+      <div class="panel panel-padding-lg relative overflow-hidden">
+        <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent-500/60 to-transparent"></div>
+        <SectionHeading
+          eyebrow="Booking"
+          title="Professional inquiry flow, no backend required."
+          intro="Use the form for booking requests, event inquiries, and availability checks. The markup is Formspree-ready, so you can drop in your real endpoint when you’re ready."
+          className="max-w-[34rem]"
+          titleClass="max-w-[15ch]"
+          introClass="max-w-[32rem]"
+        />
+
+        <div class="content-stack mt-9 max-w-[34rem]">
+          <p class="prose-small sm:text-base sm:leading-8 sm:text-snow-200/70">
+            Best for college socials, formals, club nights, and private events that want something more intentional than a standard party playlist.
+          </p>
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div class="rounded-2xl border border-white/10 bg-black/20 p-4">
+              <p class="text-xs uppercase tracking-[0.24em] text-snow-200/50">Direct email</p>
+              <a href={`mailto:${siteMeta.email}`} class="mt-3 inline-block text-base text-snow-100 transition hover:text-accent-400">
+                {siteMeta.email}
+              </a>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-black/20 p-4">
+              <p class="text-xs uppercase tracking-[0.24em] text-snow-200/50">Instagram DM</p>
+              <a href={siteMeta.instagram} target="_blank" rel="noreferrer" class="mt-3 inline-block text-base text-snow-100 transition hover:text-accent-400">
+                @blumpmusic
+              </a>
+            </div>
+          </div>
+          <p class="text-xs uppercase tracking-[0.22em] text-snow-200/45">
+            Typical response time: within 24 to 48 hours.
+          </p>
+        </div>
+      </div>
+
+      <div class="panel panel-padding-lg">
+        <form action={formspreeAction} method="POST" class="grid gap-x-5 gap-y-6 sm:grid-cols-2 sm:gap-y-7">
+          <input type="hidden" name="_subject" value="New BLUMP booking inquiry" />
+
+          <label class="sm:col-span-1">
+            <span class="field-label">Name</span>
+            <input
+              type="text"
+              name="name"
+              required
+              class="field-input"
+              placeholder="Your name"
+            />
+          </label>
+
+          <label class="sm:col-span-1">
+            <span class="field-label">Email</span>
+            <input
+              type="email"
+              name="email"
+              required
+              class="field-input"
+              placeholder="you@example.com"
+            />
+          </label>
+
+          <label class="sm:col-span-1">
+            <span class="field-label">Event type</span>
+            <select
+              name="eventType"
+              required
+              class="field-input"
+            >
+              <option value="">Select an event type</option>
+              <option>College event</option>
+              <option>Club night</option>
+              <option>Private party</option>
+              <option>Formal</option>
+              <option>Brand/social event</option>
+            </select>
+          </label>
+
+          <label class="sm:col-span-1">
+            <span class="field-label">Date</span>
+            <input
+              type="date"
+              name="date"
+              required
+              class="field-input"
+            />
+          </label>
+
+          <label class="sm:col-span-2">
+            <span class="field-label">Message</span>
+            <textarea
+              name="message"
+              rows="6"
+              required
+              class="field-textarea"
+              placeholder="Tell me about the event, crowd size, timing, and what kind of energy you want."
+            ></textarea>
+          </label>
+
+          <div class="sm:col-span-2 mt-1 border-t border-white/10 pt-6">
+            <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+              <p class="max-w-md text-sm leading-6 text-snow-200/60">
+              Replace the placeholder Formspree action with your live endpoint in this component when you’re ready to receive submissions.
+              </p>
+              <button type="submit" class="button-primary sm:min-w-40">
+                Send Inquiry
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

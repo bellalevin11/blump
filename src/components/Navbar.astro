@@ -1,0 +1,89 @@
+---
+import { navLinks, siteMeta } from "../data/site";
+---
+
+<header class="fixed inset-x-0 top-0 z-50">
+  <nav
+    data-navbar
+    class="mx-4 mt-4 flex items-center justify-between rounded-full border border-white/10 bg-black/20 px-4 py-3 backdrop-blur-xl transition duration-300 sm:mx-6 sm:px-5 lg:mx-10 xl:mx-16"
+  >
+    <a href="#top" class="font-display text-lg font-semibold tracking-[0.28em] text-snow-100">
+      {siteMeta.name}
+    </a>
+
+    <button
+      type="button"
+      data-nav-toggle
+      class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-snow-100 md:hidden"
+      aria-expanded="false"
+      aria-controls="mobile-nav"
+      aria-label="Toggle navigation"
+    >
+      <span class="sr-only">Menu</span>
+      <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+        <path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round" />
+      </svg>
+    </button>
+
+    <div class="hidden items-center gap-5 md:flex">
+      {navLinks.map((link) => (
+        <a href={link.href} class="nav-link">
+          {link.label}
+        </a>
+      ))}
+      <a href="#booking" class="button-primary px-4 py-2.5 text-xs uppercase tracking-[0.24em]">
+        Book BLUMP
+      </a>
+    </div>
+  </nav>
+
+  <div
+    id="mobile-nav"
+    data-mobile-nav
+    class="mx-4 mt-3 hidden md:hidden"
+  >
+    <div class="panel overflow-hidden px-5 py-4">
+      <div class="flex flex-col gap-3">
+        {navLinks.map((link) => (
+          <a href={link.href} class="nav-link text-base">
+            {link.label}
+          </a>
+        ))}
+        <a href="#booking" class="button-primary w-full">
+          Book BLUMP
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  const nav = document.querySelector("[data-navbar]");
+  const toggle = document.querySelector("[data-nav-toggle]");
+  const mobileNav = document.querySelector("[data-mobile-nav]");
+
+  const syncScrolledState = () => {
+    if (!nav) return;
+    const scrolled = window.scrollY > 24;
+    nav.classList.toggle("bg-black/55", scrolled);
+    nav.classList.toggle("border-white/15", scrolled);
+    nav.classList.toggle("shadow-2xl", scrolled);
+  };
+
+  const toggleMenu = () => {
+    if (!toggle || !mobileNav) return;
+    const expanded = toggle.getAttribute("aria-expanded") === "true";
+    toggle.setAttribute("aria-expanded", String(!expanded));
+    mobileNav.classList.toggle("hidden", expanded);
+  };
+
+  syncScrolledState();
+  window.addEventListener("scroll", syncScrolledState, { passive: true });
+  toggle?.addEventListener("click", toggleMenu);
+  mobileNav?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      toggle?.setAttribute("aria-expanded", "false");
+      mobileNav.classList.add("hidden");
+    });
+  });
+</script>
